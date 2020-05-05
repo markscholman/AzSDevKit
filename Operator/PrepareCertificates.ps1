@@ -1,14 +1,14 @@
-#RUNAS ADMINISTRRATOR!
+#RUNAS ADMINISTRATOR!
 Install-Module Microsoft.AzureStack.ReadinessChecker
 Import-Module Microsoft.AzureStack.ReadinessChecker
 
-$subject = "C=US,ST=Washington,L=Redmond,O=Mark Scholman,OU=IT"
+$subject = "C=US,ST=Washington,L=Local,O=Mark Scholman,OU=IT"
 
 New-Item -ItemType Directory -Path .\AzureStackCSR -ErrorAction SilentlyContinue -Force
 $outputDirectory = ".\AzureStackCSR"
 
-$regionName = 'redmond'
-$externalFQDN = 'asic.cloud'
+$regionName = 'local'
+$externalFQDN = 'azurestack.external'
 
 # App Services
 New-AzsCertificateSigningRequest -certificateType AppServices -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory
